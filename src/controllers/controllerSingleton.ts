@@ -1,4 +1,4 @@
-import { MaquiagemController } from './MaquiagemController';
+import { ProdutoController } from './ProdutoController';
 
-const controller = new MaquiagemController();
+const controller = new ProdutoController();
 export default controller;

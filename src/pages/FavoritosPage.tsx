@@ -2,18 +2,18 @@
 import { useEffect, useState } from 'react';
 import CardProduto from '../components/CardProduto';
 import controller from '../controllers/controllerSingleton';
-import { ProdutoMaquiagem } from '../models/ProdutoMaquiagem';
+import { Produto } from '../models/Produto';
 
 import styles from './FavoritosPage.module.css';
 
 export default function FavoritosPage() {
-  const [favoritos, setFavoritos] = useState<ProdutoMaquiagem[]>([]);
+  const [favoritos, setFavoritos] = useState<Produto[]>([]);
 
   useEffect(() => {
     const salvos = localStorage.getItem('favoritos');
     if (salvos) {
       const parsed = JSON.parse(salvos);
-      const instancias = parsed.map((p: any) => new ProdutoMaquiagem(
+      const instancias = parsed.map((p: any) => new Produto(
         p.id, p.nome, p.marca, p.preco, p.descricao, p.tipo, p.imagem
       ));
       setFavoritos(instancias);
@@ -23,7 +23,7 @@ export default function FavoritosPage() {
   }, []);
 
   
-const remover = (produto: ProdutoMaquiagem) => {
+const remover = (produto: Produto) => {
   const atualizados = favoritos.filter((p) => p.id !== produto.id);
   setFavoritos(atualizados);
   localStorage.setItem('favoritos', JSON.stringify(atualizados));

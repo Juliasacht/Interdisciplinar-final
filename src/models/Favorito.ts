@@ -1,5 +1,5 @@
-import { ProdutoMaquiagem } from './ProdutoMaquiagem';
+import { Produto } from './Produto';
 
 export class Favorito {
-  constructor(public produto: ProdutoMaquiagem) {}
+  constructor(public produto: Produto) {}
 }

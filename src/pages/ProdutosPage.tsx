@@ -4,11 +4,11 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CardProduto from '../components/CardProduto';
 import controller from '../controllers/controllerSingleton';
-import { ProdutoMaquiagem } from '../models/ProdutoMaquiagem';
+import { Produto } from '../models/Produto';
 import './ProdutosPage.css';
 
 export default function ProdutosPage() {
-  const [produtos, setProdutos] = useState<ProdutoMaquiagem[]>([]);
+  const [produtos, setProdutos] = useState<Produto[]>([]);
   const [busca, setBusca] = useState('');
   const [categoria, setCategoria] = useState('todos');
 
@@ -24,7 +24,7 @@ export default function ProdutosPage() {
         const dummyJson = await res2.json();
 
         const lista1 = fakeStore.map((item: any) => (
-          new ProdutoMaquiagem(
+          new Produto(
             Number(item.id),
             item.title || 'Sem nome',
             'FakeStore',
@@ -36,7 +36,7 @@ export default function ProdutosPage() {
         ));
 
         const lista2 = (dummyJson.products || []).map((item: any) => (
-          new ProdutoMaquiagem(
+          new Produto(
             Number(item.id + 1000),
             item.title || 'Sem nome',
             'DummyJSON',

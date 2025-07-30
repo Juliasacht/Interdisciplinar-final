@@ -1,11 +1,11 @@
 
 import { useEffect, useState } from 'react';
 import styles from './CardProduto.module.css';
-import { ProdutoMaquiagem } from '../models/ProdutoMaquiagem';
+import { Produto } from '../models/Produto';
 
 interface Props {
-  produto: ProdutoMaquiagem;
-  onFavoritar?: (produto: ProdutoMaquiagem) => void;
+  produto: Produto;
+  onFavoritar?: (produto: Produto) => void;
   aoRemover?: () => void;
   mostrarRemover?: boolean;
 }
@@ -15,7 +15,7 @@ export default function CardProduto({ produto, onFavoritar, aoRemover, mostrarRe
 
   useEffect(() => {
     const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
-    const jaFavoritado = favoritos.some((p: ProdutoMaquiagem) => p.id === produto.id);
+    const jaFavoritado = favoritos.some((p: Produto) => p.id === produto.id);
     setFavoritado(jaFavoritado);
   }, [produto.id]);
 
@@ -24,7 +24,7 @@ export default function CardProduto({ produto, onFavoritar, aoRemover, mostrarRe
     let novosFavoritos;
 
     if (favoritado) {
-      novosFavoritos = favoritos.filter((p: ProdutoMaquiagem) => p.id !== produto.id);
+      novosFavoritos = favoritos.filter((p: Produto) => p.id !== produto.id);
     } else {
       novosFavoritos = [...favoritos, produto];
     }

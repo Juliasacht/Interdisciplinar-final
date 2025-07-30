@@ -1,6 +1,6 @@
 # Site de Produtos - Vitrine Geral
 
-Este é o projeto do trabalho interdisciplinar utilizando React, TypeScript, POO, princípios SOLID e GRASP, com consumo da Makeup API.
+Este é o projeto do trabalho interdisciplinar utilizando React, TypeScript, POO, princípios SOLID e GRASP, com consumo da Fake Store API e DummyJSON API.
 
 ## Funcionalidades
 

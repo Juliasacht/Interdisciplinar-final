@@ -1,6 +1,6 @@
 import { IPesquisavel } from '../interfaces/IPesquisavel';
 
-export class ProdutoMaquiagem implements IPesquisavel {
+export class Produto implements IPesquisavel {
   constructor(
     public id: number,
     public nome: string,
